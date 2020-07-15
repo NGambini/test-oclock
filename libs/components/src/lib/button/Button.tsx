@@ -4,8 +4,13 @@ import * as styles from './button.module.less';
 
 export type ButtonProps = {
   title: string;
+  onClick?: () => void;
 };
 
 export const Button = (props: ButtonProps) => {
-  return <button className={styles['button']}>{props.title}</button>;
+  return (
+    <button onClick={props.onClick} className={styles['button']}>
+      {props.title}
+    </button>
+  );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { Button } from '@test-oclock/components';
 
-export const App = () => {
+export const App = ({ dispatch }) => {
   /*
    * Replace the elements below with your own.
    *
@@ -10,9 +11,12 @@ export const App = () => {
    */
   return (
     <div>
-      <Button title="btn from storybook" />
+      <Button
+        onClick={() => dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' })}
+        title="btn from storybook"
+      />
     </div>
   );
 };
 
-export default App;
+export default connect()(App);
