@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const fetchSymbolsRequest = () => {
   return axios.get(
-    `${process.env.API_URL}/symbols?access_key=${process.env.FIXER_API_ACCESS_KEY}`
+    // todo fix this wepack dotenv issue
+    // `${process.env.API_URL}/symbols?access_key=${process.env.FIXER_API_ACCESS_KEY}`
+    `${'http://data.fixer.io/api'}/symbols?access_key=${'15e608bebdd685e80da815e2538d3264'}`
   );
 };
 

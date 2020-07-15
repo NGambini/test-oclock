@@ -5,6 +5,12 @@ export const symbolsReducer = (
   action: any
 ): ISymbolsState => {
   switch (action.type) {
+    case 'SYMBOLS_FETCH_SUCCEEDED': {
+      // todo move to enum later
+      return {
+        currencies: action.payload.data.symbols, //todo type me
+      };
+    }
     default:
       return state;
   }
