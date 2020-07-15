@@ -12,7 +12,10 @@ export const App = ({ dispatch }) => {
   return (
     <div>
       <Button
-        onClick={() => dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' })}
+        onClick={() => {
+          dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
+          dispatch({ type: 'RATES_FETCH_REQUESTED' });
+        }}
         title="btn from storybook"
       />
     </div>
