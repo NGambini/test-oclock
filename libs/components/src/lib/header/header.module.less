@@ -1,0 +1,30 @@
+@import (reference) '../../styles/index.less';
+
+.header {
+  height: 65px;
+  width: 100%;
+  background: rgba(240, 86, 0, 0.65);
+  border: 1px solid #8b7f6d;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &-icon {
+    font-size: 24px;
+    padding: 0 24px;
+
+    @media @tablet {
+      font-size: 50px;
+    }
+  }
+
+  @media @tablet {
+    height: 100px;
+  }
+}

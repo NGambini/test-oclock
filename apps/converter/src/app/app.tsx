@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { Button, Input } from '@test-oclock/components';
+import { Button, Input, Header } from '@test-oclock/components';
 import { IReduxState } from '../store/root.state';
 
 import 'libs/components/src/ui.less';
@@ -13,6 +13,7 @@ export const App = ({ dispatch, symbols, rates }) => {
 
   return (
     <div>
+      <Header icon="payment" title="Currency Converter" />
       <Button
         onClick={() => {
           dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
