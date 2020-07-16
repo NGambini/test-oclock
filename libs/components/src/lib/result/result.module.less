@@ -2,7 +2,10 @@
 
 .result {
   &-container {
-    display: inline-block; // take no more width than content requires
+    float: left; //floating ensures we dont use the whole width
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: rgba(244, 88, 0, 0.37);
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 39px;
@@ -11,9 +14,19 @@
     @media @tablet {
       height: 130px;
     }
+  }
 
-    &-result {
-      margin: 40 45px;
-    }
+  &-value {
+    padding: 40px 45px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 49px;
+  }
+
+  &-clearfix {
+    clear: both;
   }
 }

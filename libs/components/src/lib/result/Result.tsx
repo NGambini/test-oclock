@@ -11,10 +11,11 @@ export type ResultProps = {
 export const Result = (props: ResultProps) => {
   return (
     <div className={styles['result-container']}>
-      <div>
+      <div className={styles['result-value']}>
         <CountUp end={props.value} />
-        {props.symbol}
+        {'  ' + props.symbol}
       </div>
+      <div className={styles['result-clearfix']} />
     </div>
   );
 };
