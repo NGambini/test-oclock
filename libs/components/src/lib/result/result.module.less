@@ -1,0 +1,19 @@
+@import (reference) '../../styles/index.less';
+
+.result {
+  &-container {
+    display: inline-block; // take no more width than content requires
+    background: rgba(244, 88, 0, 0.37);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 39px;
+    height: 90px;
+
+    @media @tablet {
+      height: 130px;
+    }
+
+    &-result {
+      margin: 40 45px;
+    }
+  }
+}
