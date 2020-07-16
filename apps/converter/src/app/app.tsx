@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { Button, Input, Header, Result } from '@test-oclock/components';
+import { Button, Input, Header, Result, Select } from '@test-oclock/components';
 import { IReduxState } from '../store/root.state';
 
 import 'libs/components/src/ui.less';
@@ -21,6 +21,7 @@ export const App = ({ dispatch, symbols, rates }) => {
         }}
         title="get symbols and rates"
       />
+      <Select />
       <input
         type="number"
         value={toConvert}

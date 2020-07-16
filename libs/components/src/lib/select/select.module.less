@@ -1,0 +1,46 @@
+@import (reference) '../../styles/index.less';
+
+.container {
+  display: flex;
+  min-width: 102px;
+  width: fit-content;
+  max-width: 100%;
+  height: 32px;
+  flex-direction: row;
+  padding: 4px 16px;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  border-radius: 30px;
+  cursor: pointer;
+
+  &.dark {
+    background-color: green;
+    border: 1px solid green;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  user-select: none;
+  &.dark {
+    color: white;
+  }
+}
+
+.selectorLabel {
+  color: red;
+  margin-right: 8px;
+  user-select: none;
+  flex: 7;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  &.dark {
+    color: white;
+  }
+}

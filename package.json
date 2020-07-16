@@ -28,13 +28,16 @@
   "private": true,
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",
+    "@popperjs/core": "^2.4.4",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "document-register-element": "1.13.1",
     "react": "16.13.1",
     "react-countup": "^4.3.3",
     "react-dom": "16.13.1",
-    "react-grid-system": "^7.0.3"
+    "react-grid-system": "^7.0.3",
+    "react-popper": "^2.2.3",
+    "react-spring": "^8.0.27"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
