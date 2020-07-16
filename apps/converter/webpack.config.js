@@ -7,7 +7,6 @@ module.exports = (config) => {
 
   addCssModules(config);
   addDotEnv(config);
-  console.log(config.plugins);
 
   return config;
 };

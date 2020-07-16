@@ -4,8 +4,6 @@ export const ratesReducer = (
   state: IRatesState = initialState,
   action: any
 ): IRatesState => {
-  console.log('state in ratesReducer : ', state);
-
   switch (action.type) {
     case 'RATES_FETCH_SUCCEEDED': {
       // todo move to enum later
