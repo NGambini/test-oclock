@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { Button } from '@test-oclock/components';
+import { Button, Input } from '@test-oclock/components';
 import { IReduxState } from '../store/root.state';
+
+import 'libs/components/src/ui.less';
 
 // todo type props
 export const App = ({ dispatch, symbols, rates }) => {
@@ -22,6 +24,11 @@ export const App = ({ dispatch, symbols, rates }) => {
         type="number"
         value={toConvert}
         onChange={(e) => setToConvert(parseInt(e.target.value))}
+      />
+      <Input
+        icon="account_balance"
+        placeholder="Amount in euros"
+        type="number"
       />
       <select
         value={targetCurrency}
