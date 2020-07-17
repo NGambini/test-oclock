@@ -2,12 +2,19 @@ import React, { FC, useState } from 'react';
 import MaterialIcon from '@material/react-material-icon';
 import { animated, useSpring } from 'react-spring';
 import { usePopper } from 'react-popper';
+import type { ModifierArguments, Options } from '@popperjs/core';
 import classNames from 'classnames';
 
-import styles from './select.module.less';
+import { Option } from './option/Option';
+
+import * as cssStyles from './select.module.less'; // different name to avoid collision with popper.js
 
 export type SelectProps = {
   placeholder?: string;
+};
+
+const sameWidthModifier = (data: ModifierArguments<Options>) => {
+  data.state.styles.popper.width = `${data.state.rects.reference.width}px`;
 };
 
 export const Select: FC<SelectProps> = ({ placeholder }) => {
@@ -17,7 +24,20 @@ export const Select: FC<SelectProps> = ({ placeholder }) => {
   });
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: 'bottom-start',
+    /* see here for details about resizing and placement
+      https://github.com/popperjs/popper-core/issues/794#issuecomment-589253942 */
+    modifiers: [
+      {
+        name: 'sameWidth',
+        enabled: true,
+        fn: sameWidthModifier,
+        phase: 'beforeWrite',
+        requires: ['computeStyles'],
+      },
+    ],
+  });
 
   const handleOnClick = () => {
     setIsOpened(!isOpened);
@@ -27,13 +47,13 @@ export const Select: FC<SelectProps> = ({ placeholder }) => {
     <div>
       <div
         ref={setReferenceElement}
-        className={classNames(styles['container'])}
+        className={cssStyles['container']}
         onClick={handleOnClick}
       >
         {placeholder}
 
         <animated.div
-          className={classNames(styles['iconContainer'])}
+          className={cssStyles['iconContainer']}
           style={iconRotationAngle}
         >
           <MaterialIcon icon="expand_more" />
@@ -45,14 +65,13 @@ export const Select: FC<SelectProps> = ({ placeholder }) => {
           style={styles.popper}
           {...attributes.popper}
         >
-          le popper <br />
-          le popper <br />
-          le popper <br />
-          le popper <br />
-          le popper <br />
-          le popper <br />
-          le popper <br />
-          le popper <br />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
+          <Option name="lol" key="lol" onClick={() => null} />
         </div>
       )}
     </div>

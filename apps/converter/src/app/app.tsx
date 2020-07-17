@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-grid-system';
 import { connect } from 'react-redux';
 
 import { Button, Input, Header, Result, Select } from '@test-oclock/components';
@@ -14,6 +15,35 @@ export const App = ({ dispatch, symbols, rates }) => {
   return (
     <div>
       <Header icon="payment" title="Currency Converter" />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Container>
+        <Row>
+          <Col sm={4}>
+            <Input
+              icon="account_balance"
+              placeholder="Amount in euros"
+              type="number"
+            />
+          </Col>
+          <Col sm={4}>fleche</Col>
+          <Col sm={4}>
+            <Select />
+          </Col>
+        </Row>
+      </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Button
         onClick={() => {
           dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
@@ -21,17 +51,13 @@ export const App = ({ dispatch, symbols, rates }) => {
         }}
         title="get symbols and rates"
       />
-      <Select />
+
       <input
         type="number"
         value={toConvert}
         onChange={(e) => setToConvert(parseInt(e.target.value))}
       />
-      <Input
-        icon="account_balance"
-        placeholder="Amount in euros"
-        type="number"
-      />
+
       <Result value={99} symbol="USD" />
       <select
         value={targetCurrency}
