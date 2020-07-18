@@ -10,9 +10,17 @@
   line-height: 25px;
   padding-left: 66px;
   box-sizing: border-box;
+  caret-color: @lightorange;
+  color: @sepia;
+  cursor: pointer;
 
-  &-placeholder {
+  &::placeholder {
     color: @sand;
+  }
+
+  &:focus {
+    outline: none;
+    background: fade(@lightorange, 5%);
   }
 
   @media @tablet {

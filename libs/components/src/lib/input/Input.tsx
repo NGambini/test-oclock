@@ -4,9 +4,9 @@ import MaterialIcon from '@material/react-material-icon';
 import * as styles from './input.module.less';
 
 export type InputProps = {
+  value: string;
   placeholder?: string;
   icon?: string;
-  type: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -17,10 +17,10 @@ export const Input = (props: InputProps) => {
         <MaterialIcon className={styles['input-icon']} icon={props.icon} />
       )}
       <input
-        type={props.type}
         placeholder={props.placeholder}
         onChange={props.onChange}
         className={styles['input']}
+        value={props.value}
       />
     </div>
   );

@@ -20,7 +20,7 @@ type StateProps = {
 
 // todo type props
 export const App = ({ dispatch, symbols, rates }) => {
-  const [toConvert, setToConvert] = useState(null);
+  const [toConvert, setToConvert] = useState('');
   const [targetCurrency, setTargetCurrency] = useState(null);
 
   /*
@@ -41,8 +41,10 @@ export const App = ({ dispatch, symbols, rates }) => {
             <Input
               icon="account_balance"
               placeholder="Amount in euros"
-              type="number"
-              onChange={(e) => setToConvert(parseInt(e.target.value))}
+              value={toConvert}
+              onChange={(e) => {
+                setToConvert(e.target.value.replace(/\D+/, ''));
+              }} // only keep numbers
             />
           </Col>
           <Col sm={2}>
@@ -68,7 +70,7 @@ export const App = ({ dispatch, symbols, rates }) => {
           <Col>
             {toConvert && targetCurrency && (
               <Result
-                value={toConvert * rates.rates[targetCurrency]}
+                value={parseInt(toConvert) * rates.rates[targetCurrency]}
                 symbol={symbols[targetCurrency]}
               />
             )}
