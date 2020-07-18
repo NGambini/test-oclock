@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select } from './Select';
-import { number, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 export default { title: 'Select' };
 

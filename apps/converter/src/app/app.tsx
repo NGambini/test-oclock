@@ -43,8 +43,9 @@ export const App = ({ dispatch, symbols, rates }) => {
               placeholder="Amount in euros"
               value={toConvert}
               onChange={(e) => {
+                // only keep numbers
                 setToConvert(e.target.value.replace(/\D+/, ''));
-              }} // only keep numbers
+              }}
             />
           </Col>
           <Col sm={2} className={styles['icon-arrow-container']}>
