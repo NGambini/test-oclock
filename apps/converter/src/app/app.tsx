@@ -64,8 +64,8 @@ export const App = ({ dispatch, symbols, rates }) => {
             />
           </Col>
         </Row>
-        <Row justify="center">
-          <Col sm={5}>
+        <Row align="center" justify="center">
+          <Col>
             {toConvert && targetCurrency && (
               <Result
                 value={toConvert * rates.rates[targetCurrency]}
