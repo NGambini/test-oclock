@@ -4,8 +4,15 @@ import { connect } from 'react-redux';
 
 import { Button, Input, Header, Result, Select } from '@test-oclock/components';
 import { IReduxState } from '../store/root.state';
+import { ISymbolsState } from '../store/symbols';
+import { IRates } from '../store/rates';
 
 import 'libs/components/src/ui.less';
+
+type StateProps = {
+  symbols: ISymbolsState;
+  rates: IRates;
+};
 
 // todo type props
 export const App = ({ dispatch, symbols, rates }) => {
@@ -15,6 +22,14 @@ export const App = ({ dispatch, symbols, rates }) => {
   return (
     <div>
       <Header icon="payment" title="Currency Converter" />
+
+      <Button
+        onClick={() => {
+          dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
+          dispatch({ type: 'RATES_FETCH_REQUESTED' });
+        }}
+        title="get symbols and rates"
+      />
       <br />
       <br />
       <br />
@@ -29,49 +44,43 @@ export const App = ({ dispatch, symbols, rates }) => {
               icon="account_balance"
               placeholder="Amount in euros"
               type="number"
+              onChange={(e) => setToConvert(parseInt(e.target.value))}
             />
           </Col>
           <Col sm={4}>fleche</Col>
           <Col sm={4}>
-            <Select />
+            <Select
+              placeholder="Convert to..."
+              value={targetCurrency}
+              onChange={(key) => setTargetCurrency(key)}
+              // options={[
+              //   {
+              //     key: '1',
+              //     name: 'test',
+              //   },
+              //   {
+              //     key: '2',
+              //     name: 'test2',
+              //   },
+              //   {
+              //     key: '3',
+              //     name: 'test3',
+              //   },
+              // ]}
+              options={Object.keys(symbols).map((key) => ({
+                key: key,
+                name: symbols[key],
+              }))}
+            />
           </Col>
         </Row>
       </Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Button
-        onClick={() => {
-          dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
-          dispatch({ type: 'RATES_FETCH_REQUESTED' });
-        }}
-        title="get symbols and rates"
-      />
 
-      <input
-        type="number"
-        value={toConvert}
-        onChange={(e) => setToConvert(parseInt(e.target.value))}
-      />
-
-      <Result value={99} symbol="USD" />
-      <select
-        value={targetCurrency}
-        onChange={(e) => setTargetCurrency(e.target.value)}
-      >
-        {Object.keys(symbols).map((key) => (
-          <option value={key}>{symbols[key]}</option>
-        ))}
-      </select>
       {toConvert && targetCurrency && (
-        <div>
-          result : {toConvert * rates.rates[targetCurrency]}{' '}
-          {symbols[targetCurrency]}
-        </div>
+        <Result
+          value={toConvert * rates.rates[targetCurrency]}
+          symbol={symbols[targetCurrency]}
+        />
       )}
     </div>
   );
@@ -82,4 +91,4 @@ const mapStateToProps = (state: IReduxState) => ({
   rates: state.rates, // todo make this a precise selector
 });
 
-export default connect(mapStateToProps)(App);
+export default connect<StateProps>(mapStateToProps)(App);

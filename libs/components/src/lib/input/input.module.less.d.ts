@@ -4,6 +4,7 @@ interface CssExports {
   'input': string;
   'input-container': string;
   'input-icon': string;
+  'input-placeholder': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

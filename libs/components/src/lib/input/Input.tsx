@@ -7,7 +7,7 @@ export type InputProps = {
   placeholder?: string;
   icon?: string;
   type: string;
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Input = (props: InputProps) => {

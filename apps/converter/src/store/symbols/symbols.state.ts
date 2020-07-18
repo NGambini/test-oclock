@@ -1,7 +1,3 @@
-export interface ISymbolsState {
-  currencies: Array<{ symbol: string; name: string }>;
-}
+export type ISymbolsState = Array<{ symbol: string; name: string }>;
 
-export const initialState: ISymbolsState = {
-  currencies: [],
-};
+export const initialState: ISymbolsState = [];
