@@ -3,6 +3,7 @@
 interface CssExports {
   'form-row': string;
   'icon-arrow': string;
+  'icon-arrow-container': string;
   'result-inner': string;
   'result-wrapper': string;
 }

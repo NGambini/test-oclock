@@ -47,7 +47,7 @@ export const App = ({ dispatch, symbols, rates }) => {
               }} // only keep numbers
             />
           </Col>
-          <Col sm={2}>
+          <Col sm={2} className={styles['icon-arrow-container']}>
             <MaterialIcon
               className={styles['icon-arrow']}
               icon="arrow_right_alt"
@@ -66,9 +66,6 @@ export const App = ({ dispatch, symbols, rates }) => {
             />
           </Col>
         </Row>
-        {/* <Row align="center" justify="center">
-          <Col offset={{ xs: 3 }} xs={6}></Col>
-        </Row> */}
       </Container>
       <div className={styles['result-wrapper']}>
         <div className={styles['result-inner']}>

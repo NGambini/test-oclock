@@ -49,14 +49,7 @@
 }
 
 .iconContainer {
-  color: @white;
-}
-&.dark {
-  align-items: center;
-  color: fade(@orange, 60%);
-  display: flex;
-  justify-content: center;
-  user-select: none;
+  color: fade(@orange, 50%);
 }
 
 .popper {
@@ -64,6 +57,7 @@
     transform-origin: left top;
     transform: scaleY(0);
     transition: 0.2s ease-in all;
+    background: @white;
   }
   &-opened > &-content {
     transform: scaleY(1);
