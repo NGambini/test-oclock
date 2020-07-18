@@ -53,28 +53,29 @@ export const Select: FC<SelectProps> = ({
   };
 
   return (
-    <div>
-      <div
-        ref={setReferenceElement}
-        className={classNames(cssStyles['select'], {
-          [cssStyles['select-active']]: isOpened,
-          [cssStyles['select-placeholder']]: !value,
-        })}
-        onClick={handleOnClick}
-      >
-        <div>
-          {(value && options.find((o) => o.key === value).name) || placeholder}
+    <ClickAwayListener onClickAway={() => setIsOpened(false)}>
+      <>
+        <div
+          ref={setReferenceElement}
+          className={classNames(cssStyles['select'], {
+            [cssStyles['select-active']]: isOpened,
+            [cssStyles['select-placeholder']]: !value,
+          })}
+          onClick={handleOnClick}
+        >
+          <div>
+            {(value && options.find((o) => o.key === value).name) ||
+              placeholder}
+          </div>
+
+          <animated.div
+            className={cssStyles['iconContainer']}
+            style={iconRotationAngle}
+          >
+            <MaterialIcon icon="expand_more" />
+          </animated.div>
         </div>
 
-        <animated.div
-          className={cssStyles['iconContainer']}
-          style={iconRotationAngle}
-        >
-          <MaterialIcon icon="expand_more" />
-        </animated.div>
-      </div>
-
-      <ClickAwayListener onClickAway={() => setIsOpened(!isOpened)}>
         <div
           ref={setPopperElement}
           style={styles.popper}
@@ -100,7 +101,7 @@ export const Select: FC<SelectProps> = ({
             <div className={cssStyles['popper-end']} />
           </div>
         </div>
-      </ClickAwayListener>
-    </div>
+      </>
+    </ClickAwayListener>
   );
 };
