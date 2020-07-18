@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-grid-system';
 import { connect } from 'react-redux';
+import MaterialIcon from '@material/react-material-icon';
 
-import { Button, Input, Header, Result, Select } from '@test-oclock/components';
+import { Input, Header, Result, Select } from '@test-oclock/components';
 import { IReduxState } from '../store/root.state';
 import { ISymbolsState } from '../store/symbols';
 import { IRates } from '../store/rates';
 
+// global UI styles
 import 'libs/components/src/ui.less';
+
+import * as styles from './app.module.less';
 
 type StateProps = {
   symbols: ISymbolsState;
@@ -16,30 +20,24 @@ type StateProps = {
 
 // todo type props
 export const App = ({ dispatch, symbols, rates }) => {
-  const [toConvert, setToConvert] = useState(0);
+  const [toConvert, setToConvert] = useState(null);
   const [targetCurrency, setTargetCurrency] = useState(null);
+
+  /*
+  second parameter are values to watch
+  providing an empty array is eq. to ComponentDidMount
+  */
+  useEffect(() => {
+    dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
+    dispatch({ type: 'RATES_FETCH_REQUESTED' });
+  }, []);
 
   return (
     <div>
       <Header icon="payment" title="Currency Converter" />
-
-      <Button
-        onClick={() => {
-          dispatch({ type: 'SYMBOLS_FETCH_REQUESTED' });
-          dispatch({ type: 'RATES_FETCH_REQUESTED' });
-        }}
-        title="get symbols and rates"
-      />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Container>
-        <Row>
-          <Col sm={4}>
+      <Container className={styles['form-row']}>
+        <Row justify="center" align="center">
+          <Col sm={5}>
             <Input
               icon="account_balance"
               placeholder="Amount in euros"
@@ -47,26 +45,18 @@ export const App = ({ dispatch, symbols, rates }) => {
               onChange={(e) => setToConvert(parseInt(e.target.value))}
             />
           </Col>
-          <Col sm={4}>fleche</Col>
-          <Col sm={4}>
+          <Col sm={2}>
+            <MaterialIcon
+              className={styles['icon-arrow']}
+              icon="arrow_right_alt"
+            />
+          </Col>
+          <Col sm={5}>
             <Select
+              icon="language"
               placeholder="Convert to..."
               value={targetCurrency}
               onChange={(key) => setTargetCurrency(key)}
-              // options={[
-              //   {
-              //     key: '1',
-              //     name: 'test',
-              //   },
-              //   {
-              //     key: '2',
-              //     name: 'test2',
-              //   },
-              //   {
-              //     key: '3',
-              //     name: 'test3',
-              //   },
-              // ]}
               options={Object.keys(symbols).map((key) => ({
                 key: key,
                 name: symbols[key],
@@ -74,14 +64,17 @@ export const App = ({ dispatch, symbols, rates }) => {
             />
           </Col>
         </Row>
+        <Row justify="center">
+          <Col sm={5}>
+            {toConvert && targetCurrency && (
+              <Result
+                value={toConvert * rates.rates[targetCurrency]}
+                symbol={symbols[targetCurrency]}
+              />
+            )}
+          </Col>
+        </Row>
       </Container>
-
-      {toConvert && targetCurrency && (
-        <Result
-          value={toConvert * rates.rates[targetCurrency]}
-          symbol={symbols[targetCurrency]}
-        />
-      )}
     </div>
   );
 };

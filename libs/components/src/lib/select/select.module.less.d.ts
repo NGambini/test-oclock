@@ -9,6 +9,7 @@ interface CssExports {
   'scroll-area': string;
   'select': string;
   'select-active': string;
+  'select-icon': string;
   'select-placeholder': string;
 }
 export const cssExports: CssExports;

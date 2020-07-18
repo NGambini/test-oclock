@@ -15,6 +15,7 @@ export type SelectProps = {
   value: string;
   options: { key: string; name: string }[];
   onChange: (key: string) => void;
+  icon?: string;
 };
 
 const sameWidthModifier = (data: ModifierArguments<Options>) => {
@@ -26,6 +27,7 @@ export const Select: FC<SelectProps> = ({
   options,
   value,
   onChange,
+  icon,
 }) => {
   const [isOpened, setIsOpened] = useState(false);
   const iconRotationAngle = useSpring({
@@ -63,6 +65,9 @@ export const Select: FC<SelectProps> = ({
           })}
           onClick={handleOnClick}
         >
+          {icon && (
+            <MaterialIcon className={cssStyles['select-icon']} icon={icon} />
+          )}
           <div>
             {(value && options.find((o) => o.key === value).name) ||
               placeholder}
