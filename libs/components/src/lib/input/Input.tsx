@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MaterialIcon from '@material/react-material-icon';
 
 import * as styles from './input.module.less';
+import { Ripple } from '../utils/ripple/Ripple';
+import { reference } from '@popperjs/core';
 
 export type InputProps = {
   value: string;
@@ -11,12 +13,19 @@ export type InputProps = {
 };
 
 export const Input = (props: InputProps) => {
+  const inputEl = useRef<HTMLInputElement>(null);
+
   return (
-    <div className={styles['input-container']}>
+    <div
+      className={styles['input-container']} // wrapper is required for Ripple
+      onClick={() => inputEl.current.focus()} // forward click down to input
+    >
+      <Ripple />
       {props.icon && (
         <MaterialIcon className={styles['input-icon']} icon={props.icon} />
       )}
       <input
+        ref={inputEl}
         placeholder={props.placeholder}
         onChange={props.onChange}
         className={styles['input']}

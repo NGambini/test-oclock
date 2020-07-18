@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-grid-system';
+import { Container, Row, Col, Visible } from 'react-grid-system';
 import { connect } from 'react-redux';
 import MaterialIcon from '@material/react-material-icon';
 
@@ -37,7 +37,7 @@ export const App = ({ dispatch, symbols, rates }) => {
       <Header icon="payment" title="Currency Converter" />
       <Container className={styles['form-row']}>
         <Row justify="center" align="center">
-          <Col sm={5}>
+          <Col lg={5}>
             <Input
               icon="account_balance"
               placeholder="Amount in euros"
@@ -48,13 +48,21 @@ export const App = ({ dispatch, symbols, rates }) => {
               }}
             />
           </Col>
-          <Col sm={2} className={styles['icon-arrow-container']}>
-            <MaterialIcon
-              className={styles['icon-arrow']}
-              icon="arrow_right_alt"
-            />
+          <Col lg={2} className={styles['icon-arrow-container']}>
+            <Visible xs sm md>
+              <MaterialIcon
+                className={styles['icon-arrow']}
+                icon="expand_more"
+              />
+            </Visible>
+            <Visible lg xl xxl>
+              <MaterialIcon
+                className={styles['icon-arrow']}
+                icon="chevron_right"
+              />
+            </Visible>
           </Col>
-          <Col sm={5}>
+          <Col lg={5}>
             <Select
               icon="language"
               placeholder="Convert to..."

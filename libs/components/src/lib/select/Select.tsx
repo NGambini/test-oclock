@@ -99,7 +99,11 @@ export const Select: FC<SelectProps> = ({
                   value={o.key}
                   label={o.name}
                   onClick={(key: string) => {
-                    onChange(key);
+                    if (key === value) {
+                      onChange('');
+                    } else {
+                      onChange(key);
+                    }
                     setTimeout(() => setIsOpened(false), 75); //wait a bit before closing for better feedback
                   }}
                 />

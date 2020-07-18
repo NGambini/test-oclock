@@ -1,19 +1,18 @@
 @import (reference) '../../styles/index.less';
 
 .input {
-  border-radius: 32px;
-  border: 2px solid fade(@orange, 56%);
-  box-shadow: 0px 4px 4px @shadow;
   box-sizing: border-box;
   caret-color: @lightorange;
   color: @sepia;
   cursor: pointer;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 200;
   height: 66px;
   line-height: 25px;
   padding-left: 66px;
   width: 100%;
+  border: none;
+  border-radius: 32px;
 
   &::placeholder {
     color: @sand;
@@ -33,12 +32,22 @@
 
   &-container {
     position: relative;
-    height: 80px;
+    height: 62px;
+    border-radius: 32px;
+    border: 2px solid fade(@orange, 56%);
+
+    box-shadow: 0px 4px 4px @shadow;
+    overflow: hidden; // needed for ripple
+    cursor: pointer;
+
+    @media @tablet {
+      height: 76px;
+    }
   }
 
   &-icon {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 16px;
     transform: translateY(-50%);
     font-size: 37px;
