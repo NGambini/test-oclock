@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import { Option } from './option/Option';
 
 import * as cssStyles from './select.module.less'; // different name to avoid collision with popper.js
+import { Ripple } from '../utils/ripple/Ripple';
 
 export type SelectProps = {
   placeholder?: string;
@@ -65,6 +66,7 @@ export const Select: FC<SelectProps> = ({
           })}
           onClick={handleOnClick}
         >
+          <Ripple />
           {icon && (
             <MaterialIcon className={cssStyles['select-icon']} icon={icon} />
           )}

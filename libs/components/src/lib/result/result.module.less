@@ -2,14 +2,14 @@
 
 .result {
   &-container {
-    float: left; //floating ensures we dont use the whole width
-    display: flex;
     align-items: center;
-    justify-content: center;
     background: rgba(244, 88, 0, 0.37);
-    box-shadow: inset 0px 0px 10px @shadow;
     border-radius: 39px;
+    box-shadow: inset 0px 0px 10px @shadow;
+    display: flex;
+    float: left; //floating ensures we dont use the whole width
     height: 90px;
+    justify-content: center;
 
     @media @tablet {
       height: 130px;
@@ -17,13 +17,13 @@
   }
 
   &-value {
-    padding: 40px 45px;
-    letter-spacing: 0.05em;
     color: @white;
-    text-shadow: 0px 1px 3px @shadow;
-    font-weight: 600;
     font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     line-height: 49px;
+    padding: 40px 45px;
+    text-shadow: 0px 1px 3px @shadow;
   }
 
   &-clearfix {

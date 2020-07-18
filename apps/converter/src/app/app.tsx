@@ -66,17 +66,20 @@ export const App = ({ dispatch, symbols, rates }) => {
             />
           </Col>
         </Row>
-        <Row align="center" justify="center">
-          <Col>
-            {toConvert && targetCurrency && (
-              <Result
-                value={parseInt(toConvert) * rates.rates[targetCurrency]}
-                symbol={symbols[targetCurrency]}
-              />
-            )}
-          </Col>
-        </Row>
+        {/* <Row align="center" justify="center">
+          <Col offset={{ xs: 3 }} xs={6}></Col>
+        </Row> */}
       </Container>
+      <div className={styles['result-wrapper']}>
+        <div className={styles['result-inner']}>
+          {toConvert && targetCurrency && (
+            <Result
+              value={parseInt(toConvert) * rates.rates[targetCurrency]}
+              symbol={symbols[targetCurrency]}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
