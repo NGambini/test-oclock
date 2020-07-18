@@ -49,6 +49,15 @@
 }
 
 .popper {
+  &-content {
+    transition: 0.2s ease-in all;
+    transform: scaleY(0);
+    transform-origin: left top;
+  }
+  &-opened > &-content {
+    transform: scaleY(1);
+  }
+
   &-end {
     height: 20px;
     border-radius: 0 0 32px 32px;

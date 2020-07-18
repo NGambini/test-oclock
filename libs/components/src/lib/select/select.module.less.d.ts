@@ -3,7 +3,9 @@
 interface CssExports {
   'dark': string;
   'iconContainer': string;
+  'popper-content': string;
   'popper-end': string;
+  'popper-opened': string;
   'scroll-area': string;
   'select': string;
   'select-active': string;

@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import MaterialIcon from '@material/react-material-icon';
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring, useTransition } from 'react-spring';
 import { usePopper } from 'react-popper';
 import type { ModifierArguments, Options } from '@popperjs/core';
 import { ClickAwayListener } from '@material-ui/core';
@@ -31,7 +31,6 @@ export const Select: FC<SelectProps> = ({
   const iconRotationAngle = useSpring({
     transform: isOpened ? 'rotate(180deg)' : 'rotate(0deg)',
   });
-  const popperHeight = useSpring({ height: isOpened ? '300px' : '0' }); // todo get actual popper height
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -74,33 +73,34 @@ export const Select: FC<SelectProps> = ({
           <MaterialIcon icon="expand_more" />
         </animated.div>
       </div>
-      {isOpened && (
-        <ClickAwayListener onClickAway={() => setIsOpened(!isOpened)}>
-          <div
-            ref={setPopperElement}
-            style={styles.popper}
-            className={cssStyles['popper']}
-            {...attributes.popper}
-          >
-            <animated.div style={popperHeight}>
-              <div className={cssStyles['scroll-area']}>
-                {options.map((o) => (
-                  <Option
-                    active={o.key === value}
-                    value={o.key}
-                    label={o.name}
-                    onClick={(key: string) => {
-                      onChange(key);
-                      setTimeout(() => setIsOpened(false), 75); //wait a bit before closing for better feedback
-                    }}
-                  />
-                ))}
-              </div>
-              <div className={cssStyles['popper-end']} />
-            </animated.div>
+
+      <ClickAwayListener onClickAway={() => setIsOpened(!isOpened)}>
+        <div
+          ref={setPopperElement}
+          style={styles.popper}
+          className={classNames(cssStyles['popper'], {
+            [cssStyles['popper-opened']]: isOpened,
+          })}
+          {...attributes.popper}
+        >
+          <div className={cssStyles['popper-content']}>
+            <div className={cssStyles['scroll-area']}>
+              {options.map((o) => (
+                <Option
+                  active={o.key === value}
+                  value={o.key}
+                  label={o.name}
+                  onClick={(key: string) => {
+                    onChange(key);
+                    setTimeout(() => setIsOpened(false), 75); //wait a bit before closing for better feedback
+                  }}
+                />
+              ))}
+            </div>
+            <div className={cssStyles['popper-end']} />
           </div>
-        </ClickAwayListener>
-      )}
+        </div>
+      </ClickAwayListener>
     </div>
   );
 };
