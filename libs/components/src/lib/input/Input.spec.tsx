@@ -6,7 +6,12 @@ import { Input } from './Input';
 describe('Input', () => {
   it('renders correctly', () => {
     const { baseElement: input } = render(
-      <Input icon="account_balance" placeholder="Placeholder" value="" />
+      <Input
+        icon="account_balance"
+        placeholder="Placeholder"
+        onChange={() => null}
+        value=""
+      />
     );
     expect(input).toMatchSnapshot();
   });

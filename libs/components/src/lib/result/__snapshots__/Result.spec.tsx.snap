@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      data-cy="result"
+    >
+      <div>
+        <span>
+          0
+        </span>
+          USD
+      </div>
+      <div />
+    </div>
+  </div>
+</body>
+`;

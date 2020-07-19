@@ -95,6 +95,7 @@ export const Select: FC<SelectProps> = ({
             <div className={cssStyles['scroll-area']}>
               {options.map((o) => (
                 <Option
+                  key={o.key}
                   active={o.key === value}
                   value={o.key}
                   label={o.name}

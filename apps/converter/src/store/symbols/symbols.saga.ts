@@ -6,7 +6,7 @@ const fetchSymbolsRequest = () => {
     // todo fix this wepack dotenv issue
     // `${process.env.API_URL}/symbols?access_key=${process.env.FIXER_API_ACCESS_KEY}`
     // timestamp as a workaround for caching issue (fixer raises HTTPS error even though called in HTTP if Cache-Control is present)
-    `${'http://data.fixer.io/api'}/symbols?access_key=${'15e608bebdd685e80da815e2538d3264'}&timestamp=${Date.now().toString()}`
+    `${'http://data.fixer.io/api'}/symbols?access_key=${'15e608bebdd685e80da815e2538d3264'}`
   );
 };
 

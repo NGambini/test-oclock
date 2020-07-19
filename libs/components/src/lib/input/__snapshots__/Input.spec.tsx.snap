@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      data-cy="input"
+    >
+      <div
+        class="rippleContainer"
+      />
+      <i
+        class="material-icons"
+      >
+        account_balance
+      </i>
+      <input
+        placeholder="Placeholder"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;

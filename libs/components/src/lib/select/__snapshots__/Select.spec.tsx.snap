@@ -3,10 +3,11 @@
 exports[`Select renders correctly 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      data-cy="select"
+    >
       <div
         class=""
-        data-testid="select"
       >
         <div
           class="rippleContainer"
@@ -31,13 +32,13 @@ exports[`Select renders correctly 1`] = `
       </div>
       <div
         class=""
-        data-testid="popper"
         style="position: absolute; left: 0px; top: 0px;"
       >
         <div>
           <div>
             <div
               class="undefined"
+              data-cy="option"
             >
               <i
                 class="material-icons"
@@ -50,6 +51,7 @@ exports[`Select renders correctly 1`] = `
             </div>
             <div
               class=""
+              data-cy="option"
             >
               <span>
                 Second
@@ -57,6 +59,7 @@ exports[`Select renders correctly 1`] = `
             </div>
             <div
               class=""
+              data-cy="option"
             >
               <span>
                 Third
