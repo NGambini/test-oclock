@@ -9,10 +9,11 @@ export type ResultProps = {
 };
 
 export const Result = (props: ResultProps) => {
+  console.log('value:', props.value);
   return (
     <div data-cy="result" className={styles['result-container']}>
       <div className={styles['result-value']}>
-        <CountUp end={props.value} />
+        <CountUp decimals={2} end={props.value} />
         {'  ' + props.symbol}
       </div>
       <div className={styles['result-clearfix']} />

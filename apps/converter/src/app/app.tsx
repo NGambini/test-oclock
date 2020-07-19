@@ -43,8 +43,10 @@ export const App = ({ dispatch, symbols, rates }) => {
               placeholder="Amount in euros"
               value={toConvert}
               onChange={(e) => {
-                // only keep numbers
-                setToConvert(e.target.value.replace(/\D+/, ''));
+                // only keep numbers and .
+                if (e.target.value.match(/^\d*\.?\d{0,2}$/)) {
+                  setToConvert(e.target.value);
+                }
               }}
             />
           </Col>
@@ -80,7 +82,7 @@ export const App = ({ dispatch, symbols, rates }) => {
         <div className={styles['result-inner']}>
           {toConvert && targetCurrency && (
             <Result
-              value={parseInt(toConvert) * rates.rates[targetCurrency]}
+              value={parseFloat(toConvert) * rates.rates[targetCurrency]}
               symbol={symbols[targetCurrency]}
             />
           )}
