@@ -9,7 +9,6 @@ export type ResultProps = {
 };
 
 export const Result = (props: ResultProps) => {
-  console.log('value:', props.value);
   return (
     <div data-cy="result" className={styles['result-container']}>
       <div className={styles['result-value']}>
