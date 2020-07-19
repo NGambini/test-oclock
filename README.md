@@ -36,7 +36,7 @@ I did some very basic wireframing in Figma that can be accessed here : https://w
 
 `npm run start converter`
 
-### Run the app
+### Build the app
 
 `npm run build converter`
 
