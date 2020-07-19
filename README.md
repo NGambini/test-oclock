@@ -14,13 +14,13 @@ They are available as a UI kit that can be tested in storybook.
 
 ## Demo 🚀
 
-App is hosted at : http://rare-ear.surge.sh/
+App is hosted at : http://fantastic-wound.surge.sh
 
 ## Stack 🧰
 
 - NX.dev for monorepo
 - Typescript
-- CSS Modules and LESS a preprocessor
+- CSS Modules and LESS as a preprocessor
 - Prettier
 - Jest and testing-library/react
 - Cypress

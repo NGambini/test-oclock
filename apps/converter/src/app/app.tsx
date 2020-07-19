@@ -13,14 +13,11 @@ import 'libs/components/src/ui.less';
 
 import * as styles from './app.module.less';
 
-console.log(process.env);
-
 type StateProps = {
   symbols: ISymbolsState;
   rates: IRates;
 };
 
-// todo type props
 export const App = ({ dispatch, symbols, rates }) => {
   const [toConvert, setToConvert] = useState('');
   const [targetCurrency, setTargetCurrency] = useState(null);
@@ -96,7 +93,7 @@ export const App = ({ dispatch, symbols, rates }) => {
 
 const mapStateToProps = (state: IReduxState) => ({
   symbols: state.symbols,
-  rates: state.rates, // todo make this a precise selector
+  rates: state.rates,
 });
 
 export default connect<StateProps>(mapStateToProps)(App);
