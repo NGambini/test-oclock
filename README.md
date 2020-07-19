@@ -14,7 +14,7 @@ They are available as a UI kit that can be tested in storybook.
 
 ## Demo 🚀
 
-App is hosted at : http://fantastic-wound.surge.sh
+App is hosted at : http://witty-attack.surge.sh
 
 ## Stack 🧰
 
