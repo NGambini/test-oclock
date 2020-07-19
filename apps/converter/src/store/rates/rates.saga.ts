@@ -5,16 +5,12 @@ import { environment } from '../../environments/environment';
 
 const fetchRatesRequest = () => {
   return axios.get(
-    // todo fix this wepack dotenv issue
-    // `${process.env.API_URL}/latest?access_key=${process.env.FIXER_API_ACCESS_KEY}`
-    `${environment.fixerApiUrl}/latest?access_key=${
-      environment.fixerApiUrl
-    }&timestamp=${Date.now().toString()}`
+    `${environment.fixerApiUrl}/latest?access_key=${environment.fixerAccessKey}`
   );
 };
 
 // worker saga : will be fired on SYMBOLS_FETCH_REQUESTED
-export function* fetchRates(action) {
+export function* fetchRates() {
   try {
     const symbols = yield call(fetchRatesRequest);
     yield put({ type: 'RATES_FETCH_SUCCEEDED', payload: symbols });
