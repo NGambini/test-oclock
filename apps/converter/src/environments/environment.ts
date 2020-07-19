@@ -3,4 +3,6 @@
 
 export const environment = {
   production: false,
+  fixerApiUrl: 'http://data.fixer.io/api',
+  fixerAccessKey: '15e608bebdd685e80da815e2538d3264',
 };

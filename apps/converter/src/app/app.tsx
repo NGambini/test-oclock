@@ -13,6 +13,8 @@ import 'libs/components/src/ui.less';
 
 import * as styles from './app.module.less';
 
+console.log(process.env);
+
 type StateProps = {
   symbols: ISymbolsState;
   rates: IRates;
