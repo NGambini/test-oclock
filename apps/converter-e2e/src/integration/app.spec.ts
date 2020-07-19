@@ -3,11 +3,15 @@ import { getGreeting } from '../support/app.po';
 describe('converter', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  it('should show a result', () => {
+    cy.get('[data-cy="input"]').click().type('50');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to converter!');
+    cy.get('[data-cy="select"]').click();
+
+    cy.get('[data-cy="option"]')
+      .eq(3) // get fourth element
+      .click();
+
+    cy.get('[data-cy="result"]').should('be.visible');
   });
 });

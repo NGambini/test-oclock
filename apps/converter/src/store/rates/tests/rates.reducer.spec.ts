@@ -18,8 +18,6 @@ describe('Rates Reducer', () => {
       },
     };
 
-    console.log(ratesReducer(initialState, suceedAction));
-
     expect(
       Object.keys(ratesReducer(initialState, suceedAction).rates).length
     ).toEqual(Object.keys(suceedAction.payload.data.rates).length);

@@ -17,6 +17,7 @@ export const Input = (props: InputProps) => {
 
   return (
     <div
+      data-cy="input"
       className={styles['input-container']} // wrapper is required for Ripple
       onClick={() => inputEl.current.focus()} // forward click down to input
     >

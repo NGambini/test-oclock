@@ -57,9 +57,8 @@ export const Select: FC<SelectProps> = ({
 
   return (
     <ClickAwayListener onClickAway={() => setIsOpened(false)}>
-      <div>
+      <div data-cy="select">
         <div
-          data-testid="select"
           ref={setReferenceElement}
           className={classNames(cssStyles['select'], {
             [cssStyles['select-active']]: isOpened,
@@ -85,7 +84,6 @@ export const Select: FC<SelectProps> = ({
         </div>
 
         <div
-          data-testid="popper"
           ref={setPopperElement}
           style={styles.popper}
           className={classNames(cssStyles['popper'], {

@@ -10,7 +10,7 @@ export type ResultProps = {
 
 export const Result = (props: ResultProps) => {
   return (
-    <div className={styles['result-container']}>
+    <div data-cy="result" className={styles['result-container']}>
       <div className={styles['result-value']}>
         <CountUp end={props.value} />
         {'  ' + props.symbol}

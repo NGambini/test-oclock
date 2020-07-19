@@ -14,6 +14,7 @@ export type OptionProps = {
 export const Option = (props: OptionProps) => {
   return (
     <div
+      data-cy="option"
       className={classNames(styles['option'], {
         [styles['option-active']]: props.active,
       })}
