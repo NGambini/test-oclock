@@ -1,17 +1,20 @@
 import { IRatesState, initialState } from './rates.state';
 
+import {
+  RatesActionKeys,
+  RatesActions,
+  RatesFetchSuceedAction,
+} from './rates.actions';
+
 export const ratesReducer = (
   state: IRatesState = initialState,
-  action: any
+  action: RatesActions
 ): IRatesState => {
   switch (action.type) {
-    case 'RATES_FETCH_SUCCEEDED': {
-      // todo move to enum later
+    case RatesActionKeys.RATES_FETCH_SUCCEEDED: {
       return {
         ...state,
-        date: action.payload.data.date,
-        base: action.payload.data.base,
-        rates: action.payload.data.rates, //todo type me
+        rates: action.payload.data.rates,
       };
     }
     default:

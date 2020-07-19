@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders correctly 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class=""
+        data-testid="select"
+      >
+        <div
+          class="rippleContainer"
+        />
+        <i
+          class="material-icons"
+        >
+          language
+        </i>
+        <div>
+          First
+        </div>
+        <div
+          style="transform: rotate(0deg);"
+        >
+          <i
+            class="material-icons"
+          >
+            expand_more
+          </i>
+        </div>
+      </div>
+      <div
+        class=""
+        data-testid="popper"
+        style="position: absolute; left: 0px; top: 0px;"
+      >
+        <div>
+          <div>
+            <div
+              class="undefined"
+            >
+              <i
+                class="material-icons"
+              >
+                check
+              </i>
+              <span>
+                First
+              </span>
+            </div>
+            <div
+              class=""
+            >
+              <span>
+                Second
+              </span>
+            </div>
+            <div
+              class=""
+            >
+              <span>
+                Third
+              </span>
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

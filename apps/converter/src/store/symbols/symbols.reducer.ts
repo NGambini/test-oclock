@@ -1,14 +1,20 @@
 import { ISymbolsState, initialState } from './symbols.state';
+import {
+  SymbolActionKeys,
+  SymbolsActions,
+  SymbolsFetchSuceedAction,
+} from './symbols.actions';
 
 export const symbolsReducer = (
   state: ISymbolsState = initialState,
-  action: any
-): any => {
+  action: SymbolsActions
+): ISymbolsState => {
   switch (action.type) {
-    case 'SYMBOLS_FETCH_SUCCEEDED': {
-      // todo move to enum later
+    case SymbolActionKeys.SYMBOLS_FETCH_SUCCEEDED: {
       return {
-        ...action.payload.data.symbols, //todo type me
+        // we cast the action as the precise type we want
+        // (just as an example as we only have one type...)
+        ...(action as SymbolsFetchSuceedAction).payload.data.symbols,
       };
     }
     default:

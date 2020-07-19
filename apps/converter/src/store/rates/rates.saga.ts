@@ -5,7 +5,7 @@ const fetchRatesRequest = () => {
   return axios.get(
     // todo fix this wepack dotenv issue
     // `${process.env.API_URL}/latest?access_key=${process.env.FIXER_API_ACCESS_KEY}`
-    `${'http://data.fixer.io/api'}/latest?access_key=${'15e608bebdd685e80da815e2538d3264'}`
+    `${'http://data.fixer.io/api'}/latest?access_key=${'15e608bebdd685e80da815e2538d3264'}&timestamp=${Date.now().toString()}`
   );
 };
 

@@ -15,7 +15,7 @@ export type SelectProps = {
   placeholder?: string;
   value: string;
   options: { key: string; name: string }[];
-  onChange: (key: string) => void;
+  onChange?: (key: string) => void;
   icon?: string;
 };
 
@@ -57,8 +57,9 @@ export const Select: FC<SelectProps> = ({
 
   return (
     <ClickAwayListener onClickAway={() => setIsOpened(false)}>
-      <>
+      <div>
         <div
+          data-testid="select"
           ref={setReferenceElement}
           className={classNames(cssStyles['select'], {
             [cssStyles['select-active']]: isOpened,
@@ -84,6 +85,7 @@ export const Select: FC<SelectProps> = ({
         </div>
 
         <div
+          data-testid="popper"
           ref={setPopperElement}
           style={styles.popper}
           className={classNames(cssStyles['popper'], {
@@ -112,7 +114,7 @@ export const Select: FC<SelectProps> = ({
             <div className={cssStyles['popper-end']} />
           </div>
         </div>
-      </>
+      </div>
     </ClickAwayListener>
   );
 };

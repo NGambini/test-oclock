@@ -1,3 +1,3 @@
-export type ISymbolsState = Array<{ symbol: string; name: string }>;
+export type ISymbolsState = { [currency: string]: string };
 
-export const initialState: ISymbolsState = [];
+export const initialState: ISymbolsState = {};
