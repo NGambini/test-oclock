@@ -32,7 +32,7 @@
     "@material/react-material-icon": "^0.15.0",
     "@popperjs/core": "^2.4.4",
     "@storybook/addon-actions": "^5.3.19",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "document-register-element": "1.13.1",
     "react": "16.13.1",
